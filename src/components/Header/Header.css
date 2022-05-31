@@ -1,0 +1,54 @@
+.header img{
+    height: 80px ;
+}
+
+.header{
+    text-align: center;
+}
+
+.header nav{
+    /* background-color: black; */
+    line-height: 40px;
+    font-size: 20px;
+}
+
+nav Link{
+
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    padding: 5px;
+}
+
+nav a:hover{
+background-color: grey;
+}
+
+.navItem{
+    margin-left: 5%;
+    text-decoration: none;
+    color: black;
+}
+
+.loginBtn{
+    background-color: #ff3d02;
+    color: white;
+    margin-left: 5%;
+    border: none;
+    text-align: center;
+    width: 10%;
+    height: 40px;
+    border-radius: 9px;
+    
+
+}
+
+
+.fullRow{
+    margin-top: 2%;
+}
+
+.firstColum{
+    font-weight: bold;
+    font-size: 30px;
+}
