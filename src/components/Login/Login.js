@@ -3,7 +3,12 @@ import React from 'react';
 const Login = () => {
     return (
         <div>
-            <h1>This is log in pages</h1>
+             
+            <div className="registrationArea">
+            <h2>Create An Account</h2>
+            
+
+            </div>
         </div>
     );
 };

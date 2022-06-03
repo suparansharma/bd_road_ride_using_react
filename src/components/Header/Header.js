@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -8,11 +9,12 @@ const Header = () => {
           <div className="row fullRow">
           <div className="firstColum col-sm-4">BDROADRIDE</div>
         <div className="secondColum col-sm-8">
-          <a className="navItem" to="/shop">Home</a>
-          <a className="navItem" to="/shop">Destination</a>
-          <a className="navItem" to="/review">Blog</a>
-          <a className="navItem" to="/inventor">Contact</a>
-          <button className="navItem loginBtn">Login</button>
+          <a className="navItem" href="/home">Home</a>
+          <a className="navItem" href="/shop">Destination</a>
+          <a className="navItem" href="/review">Blog</a>
+          <a className="navItem" href="/inventor">Contact</a>
+          <a href="/login" className="navItem loginBtn">Login</a>
+         
         </div>
           </div>
        
