@@ -33,13 +33,14 @@ background-color: grey;
 .loginBtn{
     background-color: #ff3d02;
     color: white;
-    margin-left: 5%;
+  
+    border-radius: 9px; 
     border: none;
-    text-align: center;
-    width: 10%;
-    height: 40px;
-    border-radius: 9px;
-    
+  padding: 1px 36px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 
 }
 
