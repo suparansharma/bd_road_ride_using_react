@@ -84,12 +84,42 @@ const Login = () => {
   
     // Sign Out method END
 
+
+    //Facebook Sign In method Start
+
+const fbProvider = new FacebookAuthProvider();
+const hadleFacebookSignIn =() =>{
+  const auth = getAuth();
+signInWithPopup(auth, fbProvider)
+  .then((result) => {
+    // The signed-in user info.
+    const user = result.user;
+
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    const credential = FacebookAuthProvider.credentialFromResult(result);
+    const accessToken = credential.accessToken;
+    console.log("Fb user after sign in",user);
+    // ...
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = FacebookAuthProvider.credentialFromError(error);
+
+    // ...
+  });
+}
+   //Facebook Sign In method End
     return (
         <div>
              
             <div className="registrationArea">
             <h2>Create An Account</h2>
-              {/* Google Sign In method Start */}
+              {/* Google Sign In button method Start */}
             {user.isSignedIn ? (
         <button onClick={handleGoogleSignOut}>Google SignOut</button>
       ) : (
@@ -105,6 +135,10 @@ const Login = () => {
       )}
       {/* Google Sign In method END */}
 <br/>
+
+
+{/* faceBook Sign In button method Start */}
+<button onClick={hadleFacebookSignIn}>Sign in using Facebook</button>
             <form action="">
                 
             </form>
