@@ -114,6 +114,105 @@ signInWithPopup(auth, fbProvider)
   });
 }
    //Facebook Sign In method End
+
+
+
+
+  //Create User method Start
+
+  const handleSubmit = (e) => {
+    if (newUser && user.email && user.password) {
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, user.email, user.password)
+        .then((userCredential) => {
+          // Signed in 
+          const newUserInfo = {...user};
+          newUserInfo.error = '';
+          newUserInfo.success = true;
+          setUser(newUserInfo);
+          updateUserName(user.name);
+          
+          // ...
+        })
+        .catch((error) => {
+       const newUserInfo = {...user};
+       newUserInfo.error = error.message;
+       newUserInfo.success = false;
+        setUser(newUserInfo);
+          
+          // ..
+        });
+    }
+    e.preventDefault();
+    if(!newUser && user.email && user.password){
+      const auth = getAuth();
+     signInWithEmailAndPassword(auth, user.email, user.password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+         const newUserInfo = {...user};
+          newUserInfo.error = '';
+          newUserInfo.success = true;
+          setUser(newUserInfo);
+          console.log("sign is user info",userCredential.user);
+    // ...
+  })
+  .catch((error) => {
+    const newUserInfo = {...user};
+    newUserInfo.error = error.message;
+    newUserInfo.success = false;
+     setUser(newUserInfo);
+  });
+    }
+  };
+
+
+  //Create User method END
+
+
+
+
+  // Email and Password validation method Start
+  const handleBlur = (e) => {
+    console.log(e.target.name, e.target.value);
+    let isFieldValid = true;
+    if (e.target.name === 'email') {
+      isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
+    }
+    if (e.target.name === 'password') {
+      isFieldValid = /^[A-Za-z]\w{7,14}$/.test(e.target.value);
+    }
+
+    if (isFieldValid) {
+      const newUserInfo = { ...user };
+      newUserInfo[e.target.name] = e.target.value;
+      setUser(newUserInfo);
+    }
+  };
+
+// Email and Password validation method END
+
+
+
+
+//Send name in information to firebase start
+const updateUserName = name => {
+    const auth = getAuth();
+  updateProfile(auth.currentUser, {
+    displayName: name
+  }).then(() => {
+    console.log('User name updated successfully');
+  }).catch((error) => {
+    // An error occurred
+    console.log(error);
+    // ...
+  });
+  }
+
+
+//Send name in information to firebase end
+
+
     return (
         <div>
              
@@ -139,9 +238,41 @@ signInWithPopup(auth, fbProvider)
 
 {/* faceBook Sign In button method Start */}
 <button onClick={hadleFacebookSignIn}>Sign in using Facebook</button>
-            <form action="">
-                
-            </form>
+
+{/* for new user */}
+<input type="checkbox" onChange={()=>setNewUser(!newUser)} name="newUser" id=''></input>
+        <label htmlFor="newUser" >New User Sign up</label>
+
+{/* from method start */}
+<form onSubmit={handleSubmit}>
+      { newUser &&  <input
+          type="text"
+          name="name"
+          onBlur={handleBlur}
+          placeholder="Enter Your Name Address"
+          required
+        />} <br/>
+        <input
+          type="text"
+          name="email"
+          onBlur={handleBlur}
+          placeholder="Enter Your Email Address"
+          required
+        />
+        <br />
+        <input
+          type="password"
+          name="password"
+          onBlur={handleBlur}
+          placeholder="Password:A-Za-z"
+          id="pswd1"
+          required
+        />
+        <br />
+        <input type="submit" value={newUser?'Sign up' : 'Sign in'}/>
+        {/* <input type="password" name="ValidPassword" onBlur={handleBlur} placeholder='Password:A-Za-z' id='pswd2' required/><br/>
+        <button type="submit" onClick={matchPassword}>Submit</button> */}
+      </form>
             
 
             </div>
