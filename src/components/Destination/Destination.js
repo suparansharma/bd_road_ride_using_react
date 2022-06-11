@@ -19,7 +19,9 @@ const onLoad = marker => {
 
 function Destination() {
   return (
-    <LoadScript
+
+    <div className="mapArea">
+<LoadScript
       googleMapsApiKey="AIzaSyAlLvZr-xXGkQuzjj2tSmOzCKQMahFLh4U"
     >
       <GoogleMap
@@ -34,6 +36,8 @@ function Destination() {
     />
       </GoogleMap>
     </LoadScript>
+    </div>
+    
   )
 }
 
