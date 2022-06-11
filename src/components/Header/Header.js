@@ -10,7 +10,7 @@ const Header = () => {
           <div className="firstColum col-sm-4">BDROADRIDE</div>
         <div className="secondColum col-sm-8">
           <a className="navItem" href="/home">Home</a>
-          <a className="navItem" href="/shop">Destination</a>
+          <a className="navItem" href="/destination">Destination</a>
           <a className="navItem" href="/review">Blog</a>
           <a className="navItem" href="/destination">Contact</a>
           <a href="/login" className="navItem loginBtn">Login</a>
