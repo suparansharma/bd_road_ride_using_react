@@ -1,5 +1,11 @@
 .inputBox{
     background: transparent;
+    /* border:transparent ; */
+}
+
+.inputBoxSignInBtn{
+    background: transparent;
+    border:transparent ;
 }
 
 
@@ -10,4 +16,36 @@
    text-align: center;
    margin-left: 40%;
    margin-top: 7%;
+}
+
+
+.logoImage{
+    height: 37px;
+    width: 39px;
+    margin-bottom: 30px;
+   
+}
+
+.afterLogo{
+    /* margin-left: 10px; */
+    /* margin-top: 10px; */
+}
+
+.faceBookLogin{
+    text-align: center;
+}
+
+
+.SignInBtn{
+    background-color: #ff3d02;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }

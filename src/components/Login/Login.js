@@ -12,6 +12,8 @@ import {
 import { initializeApp } from '@firebase/app';
 import firebaseConfig from './firebase.config';
 import './Login.css';
+import fbLogo from '../../images/Facebook_Logo.png';
+import googleLogo from '../../images/Google_Logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 // import { faCoffee } from '@fortawesome/fontawesome-free-solid'
@@ -203,83 +205,118 @@ const Login = () => {
   //Send name in information to firebase end
 
   return (
-    <div className='submitArea'>
-    <div className=''>  
-      <div className="registrationArea">
-        <h2>Create An Account</h2>
-        <br></br>
-        {/* Google Sign In button method Start */}
-        {user.isSignedIn ? (
-          <button onClick={handleGoogleSignOut}>Google SignOut</button>
-        ) : (
-          <button onClick={handleGoogleSignIn}>Google SignIn</button>
-        )}
-<br></br>
-        {user.isSignedIn && (
-          <div>
-            <p>Welcome, {user.name}</p>
-            <p>Your Email:{user.email}</p>
-            <img src={user.photo} alt="" />
-          </div>
-        )}
-        {/* Google Sign In method END */}
-        <br />
+    <div className="submitArea">
+      <div className="">
+        <div className="registrationArea">
+          <h2>Create An Account</h2>
+          <br></br>
 
-        {/* faceBook Sign In button method Start */}
-        <div className='faceBookLogin'>
-        {/* <i class="fa-brands faFacebook">aaaaa</i> */}
-        {/* <FontAwesomeIcon icon={faCoffee} ></FontAwesomeIcon> */}
-        </div>
-        <button onClick={hadleFacebookSignIn}>Sign in using Facebook</button>
-        <br></br>
-        {/* for new user */}
-        <input
-          type="checkbox"
-          onChange={() => setNewUser(!newUser)}
-          name="newUser"
-          id=""
-          className="inputBox"
-        ></input>
-        <label htmlFor="newUser">New User Sign up</label>
+          <br />
 
-        {/* from method start */}
-        <form onSubmit={handleSubmit}>
-          {newUser && (
+          <br></br>
+          {/* for new user */}
+          <input
+            type="checkbox"
+            onChange={() => setNewUser(!newUser)}
+            name="newUser"
+            id=""
+            className="inputBox"
+          ></input>
+          <label htmlFor="newUser">New User Sign up</label>
+
+          {/* from method start */}
+          <form onSubmit={handleSubmit}>
+            {newUser && (
+              <input
+                type="text"
+                name="name"
+                onBlur={handleBlur}
+                placeholder="Enter Your Name Address"
+                className="inputBox"
+                required
+              />
+            )}{' '}
+            <br />
             <input
               type="text"
-              name="name"
+              name="email"
               onBlur={handleBlur}
-              placeholder="Enter Your Name Address"
+              placeholder="Enter Your Email Address"
               className="inputBox"
               required
             />
-          )}{' '}
-          <br />
-          <input
-            type="text"
-            name="email"
-            onBlur={handleBlur}
-            placeholder="Enter Your Email Address"
-            className="inputBox"
-            required
-          />
-          <br />
-          <input
-            type="password"
-            name="password"
-            onBlur={handleBlur}
-            placeholder="Password:A-Za-z"
-            id="pswd1"
-            className="inputBox"
-            required
-          />
-          <br />
-          <input type="submit" value={newUser ? 'Sign up' : 'Sign in'} />
-          {/* <input type="password" name="ValidPassword" onBlur={handleBlur} placeholder='Password:A-Za-z' id='pswd2' required/><br/>
+            <br />
+            <input
+              type="password"
+              name="password"
+              onBlur={handleBlur}
+              placeholder="Password:A-Za-z"
+              id="pswd1"
+              className="inputBox"
+              required
+            />
+            <br />
+            <div className='SignInBtn'  >
+            <input className='inputBoxSignInBtn' type="submit" value={newUser ?  'Sign up' : 'Sign in'} />
+            </div>
+           
+            {/* <input type="password" name="ValidPassword" onBlur={handleBlur} placeholder='Password:A-Za-z' id='pswd2' required/><br/>
         <button type="submit" onClick={matchPassword}>Submit</button> */}
-        </form>
+          </form>
+
+          <div className="loginWithSocial">
+            <div className="row">
+              <div className="col">
+                {/* Google Sign In button method Start */}
+                {user.isSignedIn ? (
+                  <div onClick={handleGoogleSignOut} className="faceBookLogin">
+                    <div className="row">
+                      <div className="col ">
+                        <img className="logoImage" src={googleLogo} alt="" />{' '}
+                        <span className="afterLogo">Sign OUT </span>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  // <button onClick={handleGoogleSignOut}>Google SignOut</button>
+                  <div onClick={handleGoogleSignIn} className="faceBookLogin">
+                    <div className="row">
+                      <div className="col ">
+                        <img className="logoImage" src={googleLogo} alt="" />{' '}
+                        <span className="afterLogo">Sign in with Google </span>
+                      </div>
+                    </div>
+                  </div>
+                  // <button onClick={handleGoogleSignIn}>Google SignIn</button>
+                )}
+                <br></br>
+                {user.isSignedIn && (
+                  <div>
+                    <p>Welcome, {user.name}</p>
+                    <p>Your Email:{user.email}</p>
+                    <img src={user.photo} alt="" />
+                  </div>
+                )}
+                {/* Google Sign In method END */}
+              </div>
+
+              <div className="col">
+                {/* faceBook Sign In button method Start */}
+
+                <div onClick={hadleFacebookSignIn} className="faceBookLogin">
+                  <div className="row">
+                    <div className="col ">
+                      <img className="logoImage" src={fbLogo} alt="" />{' '}
+                      <span className="afterLogo">Sign in with Facebook </span>
+                    </div>
+                  </div>
+                </div>
+                {/* faceBook Sign In button method end */}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
