@@ -10,24 +10,36 @@ import {
   Link
 } from "react-router-dom";
 import Destination from './components/Destination/Destination';
+import Nomatch from './components/Nomatch/Nomatch';
 
 function App() {
   return (
     <div >
-     <Header></Header>
+     
      
 
      <Router>
      <Switch>
+     <Route exact path="/"> 
+     <Header></Header>
+      <Home></Home>
+      </Route>
+
+      <Route exact path="/home"> 
+      <Header></Header>
+      <Home></Home>
+      </Route>
       <Route path="/login"> 
+      <Header></Header>
       <Login></Login>
       </Route>
       <Route path="/destination">
+      <Header></Header>
         <Destination></Destination>
       </Route>
-      <Route path="/home"> 
-      <Home></Home>
-      </Route>
+      <Route path="*">
+        <Nomatch></Nomatch>
+        </Route>
     </Switch>
      </Router>
    

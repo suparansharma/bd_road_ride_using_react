@@ -1,3 +1,14 @@
 .mapArea{
     margin-left:20px;
 }
+
+
+.inputBox{
+    background: transparent;
+    /* border:transparent ; */
+}
+
+.mapingRow{
+    margin-top: 10%;
+    margin-left: 11%;
+}

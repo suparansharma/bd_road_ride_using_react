@@ -24,6 +24,6 @@ img{
 body{
 
     background-image: url('../../images/Bg.png');
-  background-size:2200px 1100px;
+  background-size:100% 1000px;
   background-repeat: no-repeat;
 }

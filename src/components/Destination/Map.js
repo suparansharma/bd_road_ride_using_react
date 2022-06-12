@@ -3,8 +3,8 @@ import { GoogleMap, LoadScript, Marker,DirectionsService, DirectionsRenderer } f
 
 
 const containerStyle = {
-  width: '350px',
-  height: '350px'
+  width: '550px',
+  height: '550px'
 };
 
 const location = {
@@ -17,7 +17,7 @@ const onLoad = marker => {
     console.log('marker: ', marker)
   }
 
-const Map = () => {
+const Map = ({origin,destination}) => {
     const [directionResponse, setDirectionResponse] = useState(null);
     return (
         <div className="mapArea">
@@ -34,22 +34,24 @@ const Map = () => {
               onLoad={onLoad}
               position={location}
             /> */}
-               <DirectionsService
-                  // required
-                  options={{ 
-                    destination: 'Gulshan 1 circle Dhaka Bangladesh',
-                    origin: 'Bannai 11 City Bank Dhaka Bangladesh',
-                    travelMode: 'DRIVING'
-                  }}
-                  // required
-                  callback={res =>{
-                    if(res !==null){
-                        setDirectionResponse(res);
-                    }
-                  }}
-                
-                />
-
+         
+                {
+                    origin !=='' && destination !=='' &&  <DirectionsService
+                    // required
+                    options={{ 
+                      destination: destination,
+                      origin: origin,
+                      travelMode: 'DRIVING'
+                    }}
+                    // required
+                    callback={res =>{
+                      if(res !==null){
+                          setDirectionResponse(res);
+                      }
+                    }}
+                  
+                  />
+                }
                 {
                     directionResponse && <DirectionsRenderer
                     // required
