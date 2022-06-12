@@ -1,32 +1,34 @@
 import React, { useState } from 'react';
 import {
-    getAuth,
-    signInWithPopup,
-    GoogleAuthProvider,
-    signOut,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    updateProfile,
-    FacebookAuthProvider,
-  } from 'firebase/auth';
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  FacebookAuthProvider,
+} from 'firebase/auth';
 import { initializeApp } from '@firebase/app';
 import firebaseConfig from './firebase.config';
-  
-
+import './Login.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
+// import { faCoffee } from '@fortawesome/fontawesome-free-solid'
+// import 'font-awesome/css/font-awesome.min.css'
 const Login = () => {
+  const [newUser, setNewUser] = useState(false);
 
-    const[newUser,setNewUser] = useState(false);
+  const app = initializeApp(firebaseConfig);
+  const [user, setUser] = useState({
+    isSignedIn: false,
+    name: '',
+    email: '',
+    password: '',
+    photo: '',
+  });
 
-    const app = initializeApp(firebaseConfig    );
-    const [user, setUser] = useState({
-      isSignedIn: false,
-      name: '',
-      email: '',
-      password: '',
-      photo: '',
-    });
-
-     // Google Sign In method Start
+  // Google Sign In method Start
 
   const handleGoogleSignIn = () => {
     const googleProvider = new GoogleAuthProvider();
@@ -57,66 +59,60 @@ const Login = () => {
   };
   // Google Sign In method END
 
-
   // Sign Out method Start
 
-    //SignOut System
-    const handleGoogleSignOut = () => {
-        const auth = getAuth();
-        signOut(auth)
-          .then(() => {
-            const signedOutUser = {
-              isSignedIn: false,
-              name: '',
-              email: '',
-              password: '',
-              photo: '',
-              error: '',
-              success: false,
-            };
-            setUser(signedOutUser);
-          })
-          .catch((error) => {
-            // An error happened.
-          });
-      };
-  
-  
-    // Sign Out method END
+  //SignOut System
+  const handleGoogleSignOut = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        const signedOutUser = {
+          isSignedIn: false,
+          name: '',
+          email: '',
+          password: '',
+          photo: '',
+          error: '',
+          success: false,
+        };
+        setUser(signedOutUser);
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
 
+  // Sign Out method END
 
-    //Facebook Sign In method Start
+  //Facebook Sign In method Start
 
-const fbProvider = new FacebookAuthProvider();
-const hadleFacebookSignIn =() =>{
-  const auth = getAuth();
-signInWithPopup(auth, fbProvider)
-  .then((result) => {
-    // The signed-in user info.
-    const user = result.user;
+  const fbProvider = new FacebookAuthProvider();
+  const hadleFacebookSignIn = () => {
+    const auth = getAuth();
+    signInWithPopup(auth, fbProvider)
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
 
-    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    const credential = FacebookAuthProvider.credentialFromResult(result);
-    const accessToken = credential.accessToken;
-    console.log("Fb user after sign in",user);
-    // ...
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = FacebookAuthProvider.credentialFromError(error);
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        const credential = FacebookAuthProvider.credentialFromResult(result);
+        const accessToken = credential.accessToken;
+        console.log('Fb user after sign in', user);
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = FacebookAuthProvider.credentialFromError(error);
 
-    // ...
-  });
-}
-   //Facebook Sign In method End
-
-
-
+        // ...
+      });
+  };
+  //Facebook Sign In method End
 
   //Create User method Start
 
@@ -125,52 +121,48 @@ signInWithPopup(auth, fbProvider)
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, user.email, user.password)
         .then((userCredential) => {
-          // Signed in 
-          const newUserInfo = {...user};
+          // Signed in
+          const newUserInfo = { ...user };
           newUserInfo.error = '';
           newUserInfo.success = true;
           setUser(newUserInfo);
           updateUserName(user.name);
-          
+
           // ...
         })
         .catch((error) => {
-       const newUserInfo = {...user};
-       newUserInfo.error = error.message;
-       newUserInfo.success = false;
-        setUser(newUserInfo);
-          
+          const newUserInfo = { ...user };
+          newUserInfo.error = error.message;
+          newUserInfo.success = false;
+          setUser(newUserInfo);
+
           // ..
         });
     }
     e.preventDefault();
-    if(!newUser && user.email && user.password){
+    if (!newUser && user.email && user.password) {
       const auth = getAuth();
-     signInWithEmailAndPassword(auth, user.email, user.password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-         const newUserInfo = {...user};
+      signInWithEmailAndPassword(auth, user.email, user.password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          const newUserInfo = { ...user };
           newUserInfo.error = '';
           newUserInfo.success = true;
           setUser(newUserInfo);
-          console.log("sign is user info",userCredential.user);
-    // ...
-  })
-  .catch((error) => {
-    const newUserInfo = {...user};
-    newUserInfo.error = error.message;
-    newUserInfo.success = false;
-     setUser(newUserInfo);
-  });
+          console.log('sign is user info', userCredential.user);
+          // ...
+        })
+        .catch((error) => {
+          const newUserInfo = { ...user };
+          newUserInfo.error = error.message;
+          newUserInfo.success = false;
+          setUser(newUserInfo);
+        });
     }
   };
 
-
   //Create User method END
-
-
-
 
   // Email and Password validation method Start
   const handleBlur = (e) => {
@@ -190,94 +182,106 @@ signInWithPopup(auth, fbProvider)
     }
   };
 
-// Email and Password validation method END
+  // Email and Password validation method END
 
-
-
-
-//Send name in information to firebase start
-const updateUserName = name => {
+  //Send name in information to firebase start
+  const updateUserName = (name) => {
     const auth = getAuth();
-  updateProfile(auth.currentUser, {
-    displayName: name
-  }).then(() => {
-    console.log('User name updated successfully');
-  }).catch((error) => {
-    // An error occurred
-    console.log(error);
-    // ...
-  });
-  }
+    updateProfile(auth.currentUser, {
+      displayName: name,
+    })
+      .then(() => {
+        console.log('User name updated successfully');
+      })
+      .catch((error) => {
+        // An error occurred
+        console.log(error);
+        // ...
+      });
+  };
 
+  //Send name in information to firebase end
 
-//Send name in information to firebase end
+  return (
+    <div className='submitArea'>
+    <div className=''>  
+      <div className="registrationArea">
+        <h2>Create An Account</h2>
+        <br></br>
+        {/* Google Sign In button method Start */}
+        {user.isSignedIn ? (
+          <button onClick={handleGoogleSignOut}>Google SignOut</button>
+        ) : (
+          <button onClick={handleGoogleSignIn}>Google SignIn</button>
+        )}
+<br></br>
+        {user.isSignedIn && (
+          <div>
+            <p>Welcome, {user.name}</p>
+            <p>Your Email:{user.email}</p>
+            <img src={user.photo} alt="" />
+          </div>
+        )}
+        {/* Google Sign In method END */}
+        <br />
 
-
-    return (
-        <div>
-             
-            <div className="registrationArea">
-            <h2>Create An Account</h2>
-              {/* Google Sign In button method Start */}
-            {user.isSignedIn ? (
-        <button onClick={handleGoogleSignOut}>Google SignOut</button>
-      ) : (
-        <button onClick={handleGoogleSignIn}>Google SignIn</button>
-      )}
-
-{user.isSignedIn && (
-        <div>
-          <p>Welcome, {user.name}</p>
-          <p>Your Email:{user.email}</p>
-          <img src={user.photo} alt="" />
+        {/* faceBook Sign In button method Start */}
+        <div className='faceBookLogin'>
+        {/* <i class="fa-brands faFacebook">aaaaa</i> */}
+        {/* <FontAwesomeIcon icon={faCoffee} ></FontAwesomeIcon> */}
         </div>
-      )}
-      {/* Google Sign In method END */}
-<br/>
-
-
-{/* faceBook Sign In button method Start */}
-<button onClick={hadleFacebookSignIn}>Sign in using Facebook</button>
-
-{/* for new user */}
-<input type="checkbox" onChange={()=>setNewUser(!newUser)} name="newUser" id=''></input>
-        <label htmlFor="newUser" >New User Sign up</label>
-
-{/* from method start */}
-<form onSubmit={handleSubmit}>
-      { newUser &&  <input
-          type="text"
-          name="name"
-          onBlur={handleBlur}
-          placeholder="Enter Your Name Address"
-          required
-        />} <br/>
+        <button onClick={hadleFacebookSignIn}>Sign in using Facebook</button>
+        <br></br>
+        {/* for new user */}
         <input
-          type="text"
-          name="email"
-          onBlur={handleBlur}
-          placeholder="Enter Your Email Address"
-          required
-        />
-        <br />
-        <input
-          type="password"
-          name="password"
-          onBlur={handleBlur}
-          placeholder="Password:A-Za-z"
-          id="pswd1"
-          required
-        />
-        <br />
-        <input type="submit" value={newUser?'Sign up' : 'Sign in'}/>
-        {/* <input type="password" name="ValidPassword" onBlur={handleBlur} placeholder='Password:A-Za-z' id='pswd2' required/><br/>
+          type="checkbox"
+          onChange={() => setNewUser(!newUser)}
+          name="newUser"
+          id=""
+          className="inputBox"
+        ></input>
+        <label htmlFor="newUser">New User Sign up</label>
+
+        {/* from method start */}
+        <form onSubmit={handleSubmit}>
+          {newUser && (
+            <input
+              type="text"
+              name="name"
+              onBlur={handleBlur}
+              placeholder="Enter Your Name Address"
+              className="inputBox"
+              required
+            />
+          )}{' '}
+          <br />
+          <input
+            type="text"
+            name="email"
+            onBlur={handleBlur}
+            placeholder="Enter Your Email Address"
+            className="inputBox"
+            required
+          />
+          <br />
+          <input
+            type="password"
+            name="password"
+            onBlur={handleBlur}
+            placeholder="Password:A-Za-z"
+            id="pswd1"
+            className="inputBox"
+            required
+          />
+          <br />
+          <input type="submit" value={newUser ? 'Sign up' : 'Sign in'} />
+          {/* <input type="password" name="ValidPassword" onBlur={handleBlur} placeholder='Password:A-Za-z' id='pswd2' required/><br/>
         <button type="submit" onClick={matchPassword}>Submit</button> */}
-      </form>
-            
-
-            </div>
-        </div>
-    );
+        </form>
+      </div>
+    </div>
+    </div>
+  );
 };
 
 export default Login;

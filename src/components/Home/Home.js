@@ -7,7 +7,7 @@ import car from '../../images/Car.png'
 
 const Home = () => {
     return (
-        <div>
+        <div className="backgroundImage">
     <div class="row rowOfhome container">
   <div class=" col-md-3 singleColum">
       <img src={bike} alt="" srcset="" />

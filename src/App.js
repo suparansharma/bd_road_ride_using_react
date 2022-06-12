@@ -13,7 +13,7 @@ import Destination from './components/Destination/Destination';
 
 function App() {
   return (
-    <div className="backgroundImage">
+    <div >
      <Header></Header>
      
 

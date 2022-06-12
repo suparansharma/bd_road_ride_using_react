@@ -16,10 +16,11 @@
 
 body{
 
-  background-image: url('../src/images/Bg.png');
-  background-size:1000px;
-  background-repeat: no-repeat;
-  backgroundwidth: 800px;
+  /* background-image: url('../src/images/Bg.png');
+  background-size:2200px 1100px;
+  background-repeat: no-repeat; */
+  /* background-width: 800px; */
+  /* background-size: 100% 100%; */
 
 }
 

@@ -1,0 +1,13 @@
+.inputBox{
+    background: transparent;
+}
+
+
+.submitArea{
+    border: 2px solid black;
+    height: 500px;
+    width: 500px;
+   text-align: center;
+   margin-left: 40%;
+   margin-top: 7%;
+}
