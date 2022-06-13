@@ -14,7 +14,7 @@ function Destination() {
       <input className='inputBox' type='text' placeholder='Going to' onBlur={e =>setDestination(e.target.value)} /><br/>
      </div>
 
-     <div className='col'>
+     <div className='col mapArea'>
      <Map origin={origin} destination={destination}></Map>
      </div>
     </div>

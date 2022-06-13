@@ -4,7 +4,7 @@ import { GoogleMap, LoadScript, Marker,DirectionsService, DirectionsRenderer } f
 
 const containerStyle = {
   width: '550px',
-  height: '550px'
+  height: '450px'
 };
 
 const location = {

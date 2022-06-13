@@ -14,7 +14,7 @@ import firebaseConfig from './firebase.config';
 import './Login.css';
 import fbLogo from '../../images/Facebook_Logo.png';
 import googleLogo from '../../images/Google_Logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 // import { faCoffee } from '@fortawesome/fontawesome-free-solid'
 // import 'font-awesome/css/font-awesome.min.css'
