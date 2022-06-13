@@ -209,18 +209,14 @@ const Login = () => {
       <div className="">
         <div className="registrationArea">
           <h2>Create An Account</h2>
-          <br></br>
-
-          <br />
-
-          <br></br>
+          <br/>
           {/* for new user */}
           <input
             type="checkbox"
             onChange={() => setNewUser(!newUser)}
             name="newUser"
             id=""
-            className="inputBox"
+            className="iinputBox"
           ></input>
           <label htmlFor="newUser">New User Sign up</label>
 
@@ -232,7 +228,7 @@ const Login = () => {
                 name="name"
                 onBlur={handleBlur}
                 placeholder="Enter Your Name Address"
-                className="inputBox"
+                className="iinputBox"
                 required
               />
             )}{' '}
@@ -242,7 +238,7 @@ const Login = () => {
               name="email"
               onBlur={handleBlur}
               placeholder="Enter Your Email Address"
-              className="inputBox"
+              className="iinputBox"
               required
             />
             <br />
@@ -252,7 +248,7 @@ const Login = () => {
               onBlur={handleBlur}
               placeholder="Password:A-Za-z"
               id="pswd1"
-              className="inputBox"
+              className="iinputBox"
               required
             />
             <br />
@@ -263,10 +259,12 @@ const Login = () => {
             {/* <input type="password" name="ValidPassword" onBlur={handleBlur} placeholder='Password:A-Za-z' id='pswd2' required/><br/>
         <button type="submit" onClick={matchPassword}>Submit</button> */}
           </form>
-
+          <div className="gapArea">
+            <h3>-----------or-----------</h3>
+          </div>
           <div className="loginWithSocial">
             <div className="row">
-              <div className="col">
+              <div className="col specificMedia">
                 {/* Google Sign In button method Start */}
                 {user.isSignedIn ? (
                   <div onClick={handleGoogleSignOut} className="faceBookLogin">
@@ -279,7 +277,7 @@ const Login = () => {
                   </div>
                 ) : (
                   // <button onClick={handleGoogleSignOut}>Google SignOut</button>
-                  <div onClick={handleGoogleSignIn} className="faceBookLogin">
+                  <div onClick={handleGoogleSignIn} className="faceBookLogin specificMedia">
                     <div className="row">
                       <div className="col ">
                         <img className="logoImage" src={googleLogo} alt="" />{' '}

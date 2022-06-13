@@ -15,15 +15,15 @@
     margin-top: 5%;
     margin-left: 11%;
     text-align: center;
-    
    
 }
 
 .fillUpArea{
     border: 1px solid white;
-    height: 260px;
+    height: 300px;
     width: 200px;
     background-color: aliceblue;
+    border-radius: 10px;
 }
 
 .searchBtn{
@@ -38,4 +38,24 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 40px;
+}
+
+
+/* .showAvailableV{
+
+border: 1px solid white;
+height: 300px;
+width: 200px;
+background-color: aliceblue;
+border-radius: 10px;
+} */
+
+#showAvailableVehicles{
+    display: none;
+}
+
+
+#afterSubmit{
+    display: none;
 }
