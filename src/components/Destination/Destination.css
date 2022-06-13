@@ -1,14 +1,41 @@
 .mapArea{
     margin-right:80px;
+    margin-left:80px;
 }
 
 
 .inputBox{
     background: transparent;
     /* border:transparent ; */
+    margin-top: 10%;
+    padding: 12px 72px;
 }
 
 .mapingRow{
     margin-top: 5%;
     margin-left: 11%;
+    text-align: center;
+    
+   
+}
+
+.fillUpArea{
+    border: 1px solid white;
+    height: 260px;
+    width: 200px;
+    background-color: aliceblue;
+}
+
+.searchBtn{
+    background-color:  #ff3d02;
+    border: none;
+    color: white;
+    padding: 12px 143px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
 }

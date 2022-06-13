@@ -9,9 +9,10 @@ function Destination() {
   return (
 
     <div className='row mapingRow container'>
-     <div className='col'>
+     <div className='col fillUpArea'>
       <input className='inputBox' type='text' placeholder='Starting From' onBlur={e =>setOrigin(e.target.value)} /> <br/>
       <input className='inputBox' type='text' placeholder='Going to' onBlur={e =>setDestination(e.target.value)} /><br/>
+      <input className='searchBtn' type="submit" />
      </div>
 
      <div className='col mapArea'>
