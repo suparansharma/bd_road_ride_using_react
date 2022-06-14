@@ -70,6 +70,11 @@ border-radius: 10px;
 }
 
 
+.logoImades{
+    width: 30px;
+    height: 50px;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}
 
@@ -96,6 +101,16 @@ border-radius: 10px;
         /* border:transparent ; */
         margin-top: 0%;
         padding: 12px 72px;
+    }
+
+
+    #billLoccationArea{
+        display: none;
+        border: 1px solid white;
+        height: 400px;
+        width: 300px;
+        background-color: aliceblue;
+        border-radius: 10px;
     }
     
 }

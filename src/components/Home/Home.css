@@ -10,9 +10,14 @@ grid-gap: 1%;
     height: 30%;
     width: 23%;
     text-align: center;
+    
    
 }
 
+.rideName{
+    text-decoration: none;
+    color: rgb(39, 38, 38);
+}
 
 img{
     height: 202px;
@@ -27,6 +32,7 @@ body{
   background-size:100% 700px;
   background-repeat: no-repeat;
 }
+
 
 
 

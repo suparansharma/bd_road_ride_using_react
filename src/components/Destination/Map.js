@@ -18,6 +18,7 @@ const onLoad = marker => {
   }
 
 const Map = ({origin,destination}) => {
+  // console.log(origin,destination);
     const [directionResponse, setDirectionResponse] = useState(null);
     return (
         <div className="mapArea">

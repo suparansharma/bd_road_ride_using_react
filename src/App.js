@@ -11,8 +11,11 @@ import {
 } from "react-router-dom";
 import Destination from './components/Destination/Destination';
 import Nomatch from './components/Nomatch/Nomatch';
+import data from './Data/Data.json';
 
 function App() {
+
+  
   return (
     <div >
      
@@ -35,7 +38,7 @@ function App() {
       </Route>
       <Route path="/destination">
       <Header></Header>
-        <Destination></Destination>
+        <Destination data={data}></Destination>
       </Route>
       <Route path="*">
         <Nomatch></Nomatch>
