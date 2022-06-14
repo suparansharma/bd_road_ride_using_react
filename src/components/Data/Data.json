@@ -1,0 +1,23 @@
+[
+	{
+        "ride" : "bike",
+        "fee": 100,
+        "seat": 1
+    },
+    {
+        "ride" : "car",
+        "fee": 1000,
+        "seat": 3
+    },
+    {
+        "ride" : "bus",
+        "fee": 500,
+        "seat": 42
+    },
+    {
+        "ride" : "train",
+        "fee": 10,
+        "seat": 500
+    }
+	
+]

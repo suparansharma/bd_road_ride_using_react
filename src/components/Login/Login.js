@@ -216,9 +216,12 @@ const Login = () => {
             onChange={() => setNewUser(!newUser)}
             name="newUser"
             id=""
-            className="iinputBox"
+            className="iinputBox "
           ></input>
-          <label htmlFor="newUser">New User Sign up</label>
+           <label htmlFor="newUser ">New User Sign up</label>
+
+          {/* <button type="" onChange={() => setNewUser(!newUser)} name="newUser" id="" className="iinputBox ">New User Sign up</button> */}
+         
 
           {/* from method start */}
           <form onSubmit={handleSubmit}>
@@ -255,6 +258,14 @@ const Login = () => {
             <div className='SignInBtn'  >
             <input className='inputBoxSignInBtn' type="submit" value={newUser ?  'Sign up' : 'Sign in'} />
             </div>
+
+     {/* <div className='SignInBtn'>
+     <button  type="checkbox"
+            onChange={() => setNewUser(!newUser)}
+            name="newUser"
+            id=""
+            className="iinputBox ">New User Sign up</button>
+     </div> */}
            
             {/* <input type="password" name="ValidPassword" onBlur={handleBlur} placeholder='Password:A-Za-z' id='pswd2' required/><br/>
         <button type="submit" onClick={matchPassword}>Submit</button> */}
@@ -303,9 +314,9 @@ const Login = () => {
 
                 <div onClick={hadleFacebookSignIn} className="faceBookLogin">
                   <div className="row">
-                    <div className="col ">
+                    <div className="col" style={{lineBreak: 'anywhere',fontSize: '14px'}} >
                       <img className="logoImage" src={fbLogo} alt="" />{' '}
-                      <span className="afterLogo">Sign in with Facebook </span>
+                      <span className="afterLogo ">Sign in with Facebook </span>
                     </div>
                   </div>
                 </div>

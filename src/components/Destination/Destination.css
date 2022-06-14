@@ -14,8 +14,12 @@
 .mapingRow{
     margin-top: 5%;
     margin-left: 11%;
-    text-align: center;
+  
    
+}
+
+.centerClass{
+    text-align: center;
 }
 
 .fillUpArea{
@@ -56,6 +60,42 @@ border-radius: 10px;
 }
 
 
-#afterSubmit{
+#billLoccationArea{
     display: none;
+    border: 1px solid white;
+    height: 400px;
+    width: 300px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .mapingRow{
+  
+        margin-left: 17%;
+       
+       
+    }
+
+    .inputBox{
+        background: transparent;
+        /* border:transparent ; */
+        margin-top: 0%;
+        padding: 12px 72px;
+    }
+    
 }
