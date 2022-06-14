@@ -12,10 +12,15 @@ import {
 import Destination from './components/Destination/Destination';
 import Nomatch from './components/Nomatch/Nomatch';
 import data from './Data/Data.json';
+import { useState } from 'react';
 
 function App() {
 
   
+  const [rider, setRider] = useState([])
+  const handleRider = (ride) => {
+      setRider(ride)
+    }
   return (
     <div >
      
@@ -30,7 +35,7 @@ function App() {
 
       <Route exact path="/home"> 
       <Header></Header>
-      <Home></Home>
+      <Home  handleRider={handleRider}></Home>
       </Route>
       <Route path="/login"> 
       <Header></Header>

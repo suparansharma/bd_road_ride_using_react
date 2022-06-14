@@ -75,34 +75,66 @@ function Destination(props) {
 
       <div id="billLoccationArea">
  
-            <div className="col-md-3 m-5 " style={{ backgroundColor: "#EFEFEF" }}>
-                <div className="row " style={{ backgroundColor: "#FF6E40", color: "white",width: '370%',marginLeft: '-55%'}}>
+         
+                <div className="row firstRow">
                   <Timeline >
-                      <TimelineItem >
+            
                          
                               <TimelineDot ></TimelineDot>
                        
                           <TimelineContent >{origin}</TimelineContent>
-                      </TimelineItem>
-                      <TimelineItem>
-                          <TimelineSeparator>
+                      
+                     
+                         
                               <TimelineDot ></TimelineDot>
-                          </TimelineSeparator>
+                          
                           <TimelineContent>{destination}</TimelineContent>
-                      </TimelineItem>
+                   
                   </Timeline>
 
                 </div>
                 <div className="row">
-                    <div className="col-2  ">
-                        <img className="logoImades" src={rideImage} alt="image" />
+                <div className="row bg-light p-2 m-1">
+                    <div className="col-2 m-1">
+                        <img className="logoImades"  src={rideImage}  alt="image" />
                     </div>
-                    <div className="col-2 m-2 text-center">
-                        <p text-capitalize>{ride}  {seat}</p>
+                    <div className="col-4 m-2 text-center">
+                        <p text-capitalize>{ride} <img className="logoImades"  src={PeopleIcon} alt=""/> {seat}</p>
                     </div>
-                    {/* <div className="col-2 m-2">
+                    <div className="col-2 m-2">
                         <p>${fee}</p>
-                    </div> */}
+                    </div>
+                </div>
+                </div>
+
+
+                <div className="row">
+                <div className="row bg-light p-2 m-1">
+                    <div className="col-2 m-1">
+                        <img className="logoImades"  src={rideImage}  alt="image" />
+                    </div>
+                    <div className="col-4 m-2 text-center">
+                        <p text-capitalize>{ride} <img className="logoImades"  src={PeopleIcon} alt=""/> {seat}</p>
+                    </div>
+                    <div className="col-2 m-2">
+                        <p>${fee}</p>
+                    </div>
+                </div>
+                </div>
+
+
+                <div className="row">
+                <div className="row bg-light p-2 m-1">
+                    <div className="col-2 m-1">
+                        <img className="logoImades"  src={rideImage}  alt="image" />
+                    </div>
+                    <div className="col-4 m-2 text-center">
+                        <p text-capitalize>{ride} <img className="logoImades"  src={PeopleIcon} alt=""/> {seat}</p>
+                    </div>
+                    <div className="col-2 m-2">
+                        <p>${fee}</p>
+                    </div>
+                </div>
                 </div>
                 {/* <div className="row  m-2 bg-light p-3">
                     <div className="col-2 m-1">
@@ -127,7 +159,7 @@ function Destination(props) {
                     </div>
                 </div> */}
 
-            </div>
+      
          
 
       </div>

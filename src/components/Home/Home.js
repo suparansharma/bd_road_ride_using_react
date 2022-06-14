@@ -1,59 +1,53 @@
 import React, { useEffect } from 'react';
 import './Home.css';
-import bike from '../../images/Bike.png'
-import bus from '../../images/Bus.png'
-import train from '../../images/Train.png'
-import car from '../../images/Car.png'
+import bike from '../../images/Bike.png';
+import bus from '../../images/Bus.png';
+import train from '../../images/Train.png';
+import car from '../../images/Car.png';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
+const Home = (props) => {
+  // useEffect(()=>{
+  //     fetch(data)
+  //     .then(res=>res.json())
+  //     .then(result=>console.log(result))
+  // },[])
+  // console.log(data);
+  const {handleRider} = props;
+  console.log(handleRider)
 
-const Home = () => {
-    // useEffect(()=>{
-    //     fetch(data)
-    //     .then(res=>res.json())
-    //     .then(result=>console.log(result))
-    // },[])
-    // console.log(data);
-    return (
-        <div className="backgroundImage">
-    <div class="row rowOfhome container">
-  <div class=" col-md-3 singleColum">
-    <a   className='rideName'href="/destination">
-    <img src={bike} alt="" srcset="" />
-        <h3>Bike</h3>
-    </a>
-      
-  </div>
-  <div class=" col-md-3 singleColum">
-  <a className='rideName'href="/destination">
-  <img src={car} alt="" srcset="" />
-        <h3 >Car</h3>
-    </a>
-      
-      </div>
-  <div class=" col-md-3 singleColum">
-  <a className='rideName' href="/destination">
-  <img src={bus} alt="" srcset="" />
-        <h3 >Bus</h3>
-    </a>
-
-
-      </div>
-  <div class=" col-md-3 singleColum">
-  <a className='rideName' href="/destination">
-  <img src={train} alt="" srcset="" />
-        <h3 >Train</h3>
-    </a>
- 
-      </div>
-</div>
+  return (
+    <div className="backgroundImage">
+      <div class="row rowOfhome container">
+        <div class=" col-md-3 singleColum">
+          <a className="rideName" href="/destination">
+            <img src={bike} alt="" srcset="" />
+            <h3>Bike</h3>
+          </a>
         </div>
+        <div class=" col-md-3 singleColum">
+          <a className="rideName" href="/destination">
+            <img src={car} alt="" srcset="" />
+            <h3>Car</h3>
+          </a>
+        </div>
+        <div class=" col-md-3 singleColum">
+          <a className="rideName" href="/destination">
+            <img src={bus} alt="" srcset="" />
+            <h3>Bus</h3>
+          </a>
+        </div>
+        <div class=" col-md-3 singleColum">
+          <a className="rideName" href="/destination">
+            <img src={train} alt="" srcset="" />
+            <h3>Train</h3>
+          </a>
+        </div>
+      </div>
+    </div>
 
-
-
-
-/* <div className="row m-5 p-5 justify-content-center ">
+    /* <div className="row m-5 p-5 justify-content-center ">
 <Link to="/destination" className=" bike col-md-2  text-center m-3 p-4 ">
         <Button  className="bg-light">
                 <img src={bike} style={{ width: "150px" }} alt="" />
@@ -80,31 +74,7 @@ const Home = () => {
 </Link>
 
 </div>   */
-
-
-
-
-    );
+  );
 };
 
 export default Home;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
