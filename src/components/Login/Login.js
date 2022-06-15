@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   getAuth,
   signInWithPopup,
@@ -14,6 +14,7 @@ import firebaseConfig from './firebase.config';
 import './Login.css';
 import fbLogo from '../../images/Facebook_Logo.png';
 import googleLogo from '../../images/Google_Logo.png';
+import { UserContext } from '../../App';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 // import { faCoffee } from '@fortawesome/fontawesome-free-solid'
@@ -29,6 +30,11 @@ const Login = () => {
     password: '',
     photo: '',
   });
+
+const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+
+
 
   // Google Sign In method Start
 
@@ -152,6 +158,7 @@ const Login = () => {
           newUserInfo.error = '';
           newUserInfo.success = true;
           setUser(newUserInfo);
+          setLoggedInUser(newUserInfo);
           console.log('sign is user info', userCredential.user);
           // ...
         })

@@ -12,25 +12,29 @@ import {
 import Destination from './components/Destination/Destination';
 import Nomatch from './components/Nomatch/Nomatch';
 import data from './Data/Data.json';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
+export const UserContext = createContext();
+
 
 function App() {
-
+const [loggedInUser, setLoggedInUser] = useState({});
   
   const [rider, setRider] = useState([])
   const handleRider = (ride) => {
       setRider(ride)
     }
   return (
-    <div >
+    <UserContext.Provider value={[loggedInUser,setLoggedInUser]} >
      
-     
+     <h3>{loggedInUser.email}</h3>
 
      <Router>
      <Switch>
      <Route exact path="/"> 
-     <Header></Header>
-      <Home></Home>
+     <Header loggedInUser={loggedInUser}></Header>
+     
+      <Home ></Home>
+
       </Route>
 
       <Route exact path="/home"> 
@@ -51,7 +55,7 @@ function App() {
     </Switch>
      </Router>
    
-    </div>
+    </UserContext.Provider>
   );
 }
 
