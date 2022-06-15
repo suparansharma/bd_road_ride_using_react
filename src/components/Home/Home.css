@@ -43,13 +43,22 @@ body{
 @media only screen and (min-width: 600px) {}
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+
+}
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
+@media only screen and (min-width: 992px) {
+    body{
+
+        background-image: url('../../images/Bg.png');
+      background-size:100% 700px;
+      background-repeat: no-repeat;
+    }
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+/* @media only screen and (min-width: 1200px) {
     body{
 
       
@@ -65,4 +74,4 @@ body{
         
         }
 }
-
+ */
