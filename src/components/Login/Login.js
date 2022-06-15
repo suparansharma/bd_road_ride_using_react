@@ -275,12 +275,12 @@ const Login = () => {
           </div>
           <div className="loginWithSocial">
             <div className="row">
-              <div className="col specificMedia">
+              <div className="col ">
                 {/* Google Sign In button method Start */}
                 {user.isSignedIn ? (
                   <div onClick={handleGoogleSignOut} className="faceBookLogin">
                     <div className="row">
-                      <div className="col ">
+                      <div className="col socialColum ">
                         <img className="logoImage" src={googleLogo} alt="" />{' '}
                         <span className="afterLogo">Sign OUT </span>
                       </div>
@@ -290,7 +290,7 @@ const Login = () => {
                   // <button onClick={handleGoogleSignOut}>Google SignOut</button>
                   <div onClick={handleGoogleSignIn} className="faceBookLogin specificMedia">
                     <div className="row">
-                      <div className="col ">
+                      <div className="col socialColum ">
                         <img className="logoImage" src={googleLogo} alt="" />{' '}
                         <span className="afterLogo">Sign in with Google </span>
                       </div>
@@ -314,7 +314,7 @@ const Login = () => {
 
                 <div onClick={hadleFacebookSignIn} className="faceBookLogin">
                   <div className="row">
-                    <div className="col" style={{lineBreak: 'anywhere',fontSize: '14px'}} >
+                    <div className="col socialColum" style={{lineBreak: 'anywhere',fontSize: '14px'}} >
                       <img className="logoImage" src={fbLogo} alt="" />{' '}
                       <span className="afterLogo ">Sign in with Facebook </span>
                     </div>
