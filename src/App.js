@@ -18,10 +18,20 @@ export const UserContext = createContext();
 
 function App() {
 const [loggedInUser, setLoggedInUser] = useState({});
-  
+const [pickFrom, setPickFrom] = useState([]);
+const [pickTo, setPickTo] = useState([]); 
   const [rider, setRider] = useState([])
   const handleRider = (ride) => {
       setRider(ride)
+      console.log(ride);
+      console.log("popopop",rider);
+    }
+    const handleSearch = () => {
+      const pickFrom = document.getElementById("pickFrom").value;
+      const pickTo = document.getElementById("pickTo").value;
+      // console.log(pickFrom,pickTo)
+      setPickFrom(pickFrom);
+      setPickTo(pickTo);
     }
   return (
     <UserContext.Provider value={[loggedInUser,setLoggedInUser]} >
@@ -32,14 +42,12 @@ const [loggedInUser, setLoggedInUser] = useState({});
      <Switch>
      <Route exact path="/"> 
      <Header loggedInUser={loggedInUser}></Header>
-     
-      <Home ></Home>
 
       </Route>
 
       <Route exact path="/home"> 
       <Header></Header>
-      <Home  handleRider={handleRider}></Home>
+      <Home handleRider={handleRider}></Home>
       </Route>
       <Route path="/login"> 
       <Header></Header>
@@ -47,11 +55,11 @@ const [loggedInUser, setLoggedInUser] = useState({});
       </Route>
       <Route path="/destination">
       <Header></Header>
-        <Destination data={data}></Destination>
+        <Destination data={data} handleSearch={handleSearch} pickFrom={pickFrom} pickTo={pickTo} ride={rider}></Destination>
       </Route>
       <Route path="*">
         <Nomatch></Nomatch>
-        </Route>
+        </Route>  
     </Switch>
      </Router>
    

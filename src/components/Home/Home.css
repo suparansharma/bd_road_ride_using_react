@@ -33,7 +33,10 @@ body{
   background-repeat: no-repeat;
 }
 
-
+.singleColum:hover{
+    background-color: rgb(39, 38, 38);
+    color: white;
+}
 
 
 /* Extra small devices (phones, 600px and down) */

@@ -20,32 +20,41 @@ const Home = (props) => {
   return (
     <div className="backgroundImage">
       <div class="row rowOfhome container">
-        <div class=" col-md-3 singleColum">
-          <a className="rideName" href="/destination">
+        
+        <div  class=" col-md-3 singleColum">
+          <a  className="rideName" onClick={() => handleRider("bike")} href="/destination">
             <img src={bike} alt="" srcset="" />
             <h3>Bike</h3>
           </a>
         </div>
-        <div class=" col-md-3 singleColum">
-          <a className="rideName" href="/destination">
+        <div  class=" col-md-3 singleColum">
+          <a className="rideName" onClick={() => props.handleRider("car")} href="/destination">
             <img src={car} alt="" srcset="" />
             <h3>Car</h3>
           </a>
         </div>
-        <div class=" col-md-3 singleColum">
-          <a className="rideName" href="/destination">
+        <div  class=" col-md-3 singleColum">
+          <a className="rideName" onClick={() => props.handleRider("bus")}  href="/destination">
             <img src={bus} alt="" srcset="" />
             <h3>Bus</h3>
           </a>
         </div>
-        <div class=" col-md-3 singleColum">
-          <a className="rideName" href="/destination">
+        <div  class=" col-md-3 singleColum">
+          <a className="rideName" onClick={() => props.handleRider("train")} href="/destination">
             <img src={train} alt="" srcset="" />
             <h3>Train</h3>
           </a>
         </div>
       </div>
     </div>
+
+
+
+
+
+
+
+
 
     /* <div className="row m-5 p-5 justify-content-center ">
 <Link to="/destination" className=" bike col-md-2  text-center m-3 p-4 ">
@@ -73,7 +82,55 @@ const Home = (props) => {
 </Button>
 </Link>
 
-</div>   */
+</div>
+
+
+link
+    <div className="backgroundImage">
+      <div class="row rowOfhome container">
+        <Link to="/destination" class=" col-md-3 singleColum">
+        <div onClick={() => handleRider("bike")} >
+          <a  className="rideName"  >
+            <img src={bike} alt="" srcset="" />
+            <h3>Bike</h3>
+          </a>
+        </div>
+        </Link>
+        <Link to="/destination" class=" col-md-3 singleColum">
+        <div  onClick={() => props.handleRider("car")}  >
+          <a className="rideName">
+            <img src={car} alt="" srcset="" />
+            <h3>Car</h3>
+          </a>
+        </div>
+        </Link>
+
+        <Link to="/destination" class=" col-md-3 singleColum">
+        <div onClick={() => props.handleRider("bus")}>
+          <a className="rideName"  >
+            <img src={bus} alt="" srcset="" />
+            <h3>Bus</h3>
+          </a>
+        </div>
+        </Link>
+        <Link to="/destination" class=" col-md-3 singleColum">
+        <div onClick={() => props.handleRider("train")}  >
+          <a className="rideName"  >
+            <img src={train} alt="" srcset="" />
+            <h3>Train</h3>
+          </a>
+        </div>
+        </Link>
+      </div>
+    </div>
+
+
+
+
+
+
+
+*/
   );
 };
 
