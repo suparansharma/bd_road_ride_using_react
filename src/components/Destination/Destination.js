@@ -20,7 +20,7 @@ function Destination(props) {
   // const [rides] = data.filter(r => r.ride == ride);
   // const {fee,seat} = rides;
   let rideImage = bike;
-console.log("rideeeeeeeeeeeeeeeeee",fee)
+console.log("rideeeeeeeeeeeeeeeeee",props.data)
   if (ride === "bike") {
     rideImage = bike;  
 }

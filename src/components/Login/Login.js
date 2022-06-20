@@ -15,6 +15,7 @@ import './Login.css';
 import fbLogo from '../../images/Facebook_Logo.png';
 import googleLogo from '../../images/Google_Logo.png';
 import { UserContext } from '../../App';
+import { useHistory } from 'react-router-dom';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 // import { faCoffee } from '@fortawesome/fontawesome-free-solid'
@@ -32,7 +33,9 @@ const Login = () => {
   });
 
 const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
+const history = useHistory();
+const location = history.location;
+let {form} = location.state || {form: 'login'};
 
 
 

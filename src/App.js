@@ -13,6 +13,7 @@ import Destination from './components/Destination/Destination';
 import Nomatch from './components/Nomatch/Nomatch';
 import data from './Data/Data.json';
 import { createContext, useState } from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 export const UserContext = createContext();
 
 
@@ -53,10 +54,10 @@ const [pickTo, setPickTo] = useState([]);
       <Header></Header>
       <Login></Login>
       </Route>
-      <Route path="/destination">
+      <PrivateRoute path="/destination">
       <Header></Header>
         <Destination data={data} handleSearch={handleSearch} pickFrom={pickFrom} pickTo={pickTo} ride={rider}></Destination>
-      </Route>
+      </PrivateRoute>
       <Route path="*">
         <Nomatch></Nomatch>
         </Route>  
