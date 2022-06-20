@@ -1,3 +1,252 @@
+// import React, { useContext, useState } from 'react';
+
+// import './Login.css';
+// import fbLogo from '../../images/Facebook_Logo.png';
+// import googleLogo from '../../images/Google_Logo.png';
+// import { UserContext } from '../../App';
+// import { useHistory } from 'react-router-dom';
+// import { hadleFacebookSignIn, handleGoogleSignIn, handleGoogleSignOut, initializeLoginFramework } from './loginManager';
+// // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// // import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
+// // import { faCoffee } from '@fortawesome/fontawesome-free-solid'
+// // import 'font-awesome/css/font-awesome.min.css'
+// const Login = () => {
+//   const [newUser, setNewUser] = useState(false);
+
+  
+//   const [user, setUser] = useState({
+//     isSignedIn: false,
+//     name: '',
+//     email: '',
+//     password: '',
+//     photo: '',
+//   });
+// initializeLoginFramework();
+// const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+// const history = useHistory();
+// const location = history.location;
+// let {form} = location.state || {form: 'login'};
+
+
+// const googleSignIn = () => {
+//   handleGoogleSignIn()
+//   .then(res => {
+//     setUser(res)
+//     setLoggedInUser(res)
+//   }) 
+// }
+
+
+// const signOut = () => {
+//   handleGoogleSignOut()
+//   .then(res => {
+//     setUser(res)
+//     setLoggedInUser(res)
+    
+//   })
+// }
+
+
+// const facebookSignIn = () => {
+//   hadleFacebookSignIn()
+//   .then(res => {
+//     setUser(res)
+//     setLoggedInUser(res)
+//   })
+// }
+  
+ 
+//   //Create User method Start
+
+//   const handleSubmit = (e) => {
+//     if (newUser && user.email && user.password) {
+      
+//     }
+
+//     e.preventDefault();
+//     if (!newUser && user.email && user.password) {
+      
+// }
+//   };
+
+//   //Create User method END
+
+//   // Email and Password validation method Start
+//   const handleBlur = (e) => {
+//     console.log(e.target.name, e.target.value);
+//     let isFieldValid = true;
+//     if (e.target.name === 'email') {
+//       isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
+//     }
+//     if (e.target.name === 'password') {
+//       isFieldValid = /^[A-Za-z]\w{7,14}$/.test(e.target.value);
+//     }
+
+//     if (isFieldValid) {
+//       const newUserInfo = { ...user };
+//       newUserInfo[e.target.name] = e.target.value;
+//       setUser(newUserInfo);
+//     }
+//   };
+
+//   // Email and Password validation method END
+
+ 
+
+//   return (
+//     <div className="submitArea">
+//       <div className="">
+//         <div className="registrationArea">
+//           <h2>Create An Account</h2>
+//           <br/>
+//           {/* for new user */}
+//           <input
+//             type="checkbox"
+//             onChange={() => setNewUser(!newUser)}
+//             name="newUser"
+//             id=""
+//             className="iinputBox "
+//           ></input>
+//            <label htmlFor="newUser ">New User Sign up</label>
+
+//           {/* <button type="" onChange={() => setNewUser(!newUser)} name="newUser" id="" className="iinputBox ">New User Sign up</button> */}
+         
+
+//           {/* from method start */}
+//           <form onSubmit={handleSubmit}>
+//             {newUser && (
+//               <input
+//                 type="text"
+//                 name="name"
+//                 onBlur={handleBlur}
+//                 placeholder="Enter Your Name Address"
+//                 className="iinputBox"
+//                 required
+//               />
+//             )}{' '}
+//             <br />
+//             <input
+//               type="text"
+//               name="email"
+//               onBlur={handleBlur}
+//               placeholder="Enter Your Email Address"
+//               className="iinputBox"
+//               required
+//             />
+//             <br />
+//             <input
+//               type="password"
+//               name="password"
+//               onBlur={handleBlur}
+//               placeholder="Password:A-Za-z"
+//               id="pswd1"
+//               className="iinputBox"
+//               required
+//             />
+//             <br />
+//             <div className='SignInBtn'  >
+//             <input className='inputBoxSignInBtn' type="submit" value={newUser ?  'Sign up' : 'Sign in'} />
+//             </div>
+
+//      {/* <div className='SignInBtn'>
+//      <button  type="checkbox"
+//             onChange={() => setNewUser(!newUser)}
+//             name="newUser"
+//             id=""
+//             className="iinputBox ">New User Sign up</button>
+//      </div> */}
+           
+//             {/* <input type="password" name="ValidPassword" onBlur={handleBlur} placeholder='Password:A-Za-z' id='pswd2' required/><br/>
+//         <button type="submit" onClick={matchPassword}>Submit</button> */}
+//           </form>
+//           <div className="gapArea">
+//             <h3>-----------or-----------</h3>
+//           </div>
+//           <div className="loginWithSocial">
+//             <div className="row">
+//               <div className="col ">
+//                 {/* Google Sign In button method Start */}
+//                 {user.isSignedIn ? (
+//                   <div onClick={signOut} className="faceBookLogin">
+//                     <div className="row">
+//                       <div className="col socialColum ">
+//                         <img className="logoImage" src={googleLogo} alt="" />{' '}
+//                         <span className="afterLogo">Sign OUT </span>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 ) : (
+//                   // <button onClick={handleGoogleSignOut}>Google SignOut</button>
+//                   <div onClick={googleSignIn} className="faceBookLogin specificMedia">
+//                     <div className="row">
+//                       <div className="col socialColum ">
+//                         <img className="logoImage" src={googleLogo} alt="" />{' '}
+//                         <span className="afterLogo">Sign in with Google </span>
+//                       </div>
+//                     </div>
+//                   </div>
+//                   // <button onClick={handleGoogleSignIn}>Google SignIn</button>
+//                 )}
+//                 <br></br>
+//                 {user.isSignedIn && (
+//                   <div>
+//                     <p>Welcome, {user.name}</p>
+//                     <p>Your Email:{user.email}</p>
+//                     <img src={user.photo} alt="" />
+//                   </div>
+//                 )}
+//                 {/* Google Sign In method END */}
+//               </div>
+
+//               <div className="col">
+//                 {/* faceBook Sign In button method Start */}
+
+//                 <div onClick={facebookSignIn} className="faceBookLogin">
+//                   <div className="row">
+//                     <div className="col socialColum" style={{lineBreak: 'anywhere',fontSize: '14px'}} >
+//                       <img className="logoImage" src={fbLogo} alt="" />{' '}
+//                       <span className="afterLogo ">Sign in with Facebook </span>
+//                     </div>
+//                   </div>
+//                 </div>
+//                 {/* faceBook Sign In button method end */}
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// raw login
+
 import React, { useContext, useState } from 'react';
 import {
   getAuth,
@@ -20,6 +269,7 @@ import { useHistory } from 'react-router-dom';
 // import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
 // import { faCoffee } from '@fortawesome/fontawesome-free-solid'
 // import 'font-awesome/css/font-awesome.min.css'
+
 const Login = () => {
   const [newUser, setNewUser] = useState(false);
 
@@ -35,7 +285,7 @@ const Login = () => {
 const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 const history = useHistory();
 const location = history.location;
-let {form} = location.state || {form: 'login'};
+let {from} = location.state || {from: {pathname: '/'}};
 
 
 
@@ -54,6 +304,7 @@ let {form} = location.state || {form: 'login'};
           photo: photoURL,
         };
         setUser(signedInUser);
+        
         console.log(displayName, photoURL, email);
       })
       .catch((error) => {
@@ -162,6 +413,7 @@ let {form} = location.state || {form: 'login'};
           newUserInfo.success = true;
           setUser(newUserInfo);
           setLoggedInUser(newUserInfo);
+          history.replace(from);
           console.log('sign is user info', userCredential.user);
           // ...
         })
@@ -230,7 +482,7 @@ let {form} = location.state || {form: 'login'};
           ></input>
            <label htmlFor="newUser ">New User Sign up</label>
 
-          {/* <button type="" onChange={() => setNewUser(!newUser)} name="newUser" id="" className="iinputBox ">New User Sign up</button> */}
+       
          
 
           {/* from method start */}
@@ -269,16 +521,7 @@ let {form} = location.state || {form: 'login'};
             <input className='inputBoxSignInBtn' type="submit" value={newUser ?  'Sign up' : 'Sign in'} />
             </div>
 
-     {/* <div className='SignInBtn'>
-     <button  type="checkbox"
-            onChange={() => setNewUser(!newUser)}
-            name="newUser"
-            id=""
-            className="iinputBox ">New User Sign up</button>
-     </div> */}
-           
-            {/* <input type="password" name="ValidPassword" onBlur={handleBlur} placeholder='Password:A-Za-z' id='pswd2' required/><br/>
-        <button type="submit" onClick={matchPassword}>Submit</button> */}
+
           </form>
           <div className="gapArea">
             <h3>-----------or-----------</h3>
